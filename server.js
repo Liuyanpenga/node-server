@@ -4,7 +4,7 @@ var url = require('url')
 var port = process.argv[2]
 
 if(!port){
-  console.log('请指定端口号 \nnode server.js xxxx？')
+  console.log('请指定端口号 \nnode server.js xxxx')
   process.exit(1)
 }
 
@@ -16,8 +16,6 @@ var server = http.createServer(function(request, response){
   var path = parsedUrl.pathname
   var query = parsedUrl.query
   var method = request.method
-
-  /******** 从这里开始看，上面不要看 ************/
 
   console.log('请求发过来了 路径（带查询参数）为：' + pathWithQuery)
 
@@ -37,8 +35,6 @@ var server = http.createServer(function(request, response){
     response.write(`你输入的路径不存在对应的内容`)
     response.end()
   }
-
-  /******** 代码结束，下面不要看 ************/
 })
 
 server.listen(port)
